@@ -11,7 +11,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 // import { MatListModule } from '@angular/material/list';
 // import { MatButtonModule } from '@angular/material/button';
 // import { MatCardModule } from '@angular/material/card';
-import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
+// import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserRegisterComponent } from './user-register/user-register.component';
 
@@ -24,7 +24,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
     // MatCardModule,
     // MatListModule,
     // MatToolbarModule,
-    CovalentDynamicFormsModule,
+    // CovalentDynamicFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path:'products/:productId', component:ProductDetailsComponent}

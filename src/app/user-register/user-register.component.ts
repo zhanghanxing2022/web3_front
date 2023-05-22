@@ -33,7 +33,7 @@ export class UserRegisterComponent implements OnInit{
         window.alert(response.message);
     });
  }
- 
+
 
 
 }
