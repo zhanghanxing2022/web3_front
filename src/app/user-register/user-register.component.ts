@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserRegisterComponent implements OnInit{
   private url = "http://localhost:8080/user/register";
   ngOnInit(): void {
-      
+
   }
   constructor(public http:HttpClient)
   {
@@ -33,6 +33,7 @@ export class UserRegisterComponent implements OnInit{
         window.alert(response.message);
     });
  }
+ 
 
 
 }
