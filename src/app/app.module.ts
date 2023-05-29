@@ -7,28 +7,39 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatListModule } from '@angular/material/list';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatCardModule } from '@angular/material/card';
-import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
-import { HttpClientModule } from '@angular/common/http';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+// import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserTableComponent } from './user-table/user-table.component';
+import { UserAuthInterceptor } from './user-auth.interceptor';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    // MatButtonModule,
-    // MatCardModule,
-    // MatListModule,
-    // MatToolbarModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatListModule,
+    MatToolbarModule,
+    MatTableModule,
     // CovalentDynamicFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
-      { path:'products/:productId', component:ProductDetailsComponent}
-    ])
+      { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: 'login', component: UserLoginComponent },
+      { path: 'register', component: UserRegisterComponent }
+    ]),
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
@@ -36,11 +47,20 @@ import { UserRegisterComponent } from './user-register/user-register.component';
     ProductListComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserLoginComponent,
+    UserTableComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent],
+  providers:[
+    { provide: HTTP_INTERCEPTORS, useClass: UserAuthInterceptor, multi: true },
+  ]
 })
-export class AppModule { }
+export class AppModule {
+  
+}
+
+
 
 
 /*

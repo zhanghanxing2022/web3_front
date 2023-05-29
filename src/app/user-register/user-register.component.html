@@ -1,6 +1,45 @@
-<p>
-    <button (click) = "greeting()">Hello World</button>
-  </p> <p>
-    <button (click)="register()">User Register</button>
+<!-- <p *ngFor="let item of valueList">
+  <label>{{item.Label}}</label>
+  <input required [(ngModel)]="item.value" (change)="item.check()" />
+  <span  [ngStyle]="{'color':item.color}">{{ item.mess}}</span>
+</p> -->
 
-  </p>
+
+<div style="width: 100%;display:flex;justify-content: center; align-items:center;">
+  <div class="register_login_container">
+    <p>
+      <label>Name</label>
+      <input required [(ngModel)]="name.value" (change)="nameCheck()" />
+      <br>
+      <span [ngStyle]="{'color':name.color}">{{ name.mess}}</span>
+    </p>
+    <p>
+      <label>Password</label>
+      <input required [(ngModel)]="pass.value" type="password" (change)="passCheck()" /><br>
+      <span [ngStyle]="{'color':pass.color}">{{ pass.mess}}</span>
+    </p>
+    <p>
+      <label>Repeate Password</label>
+      <input required [(ngModel)]="pass2.value" type="password" (change)="pass2Check()" /><br>
+      <span [ngStyle]="{'color':pass2.color}">{{ pass2.mess}}</span>
+    </p>
+    <p>
+      <label>Email</label>
+      <input required [(ngModel)]="email.value" (change)="emailCheck()" /><br>
+      <span [ngStyle]="{'color':email.color}">{{ email.mess}}</span>
+    </p>
+    <p>
+      <label>Phone</label>
+      <input required [(ngModel)]="phone.value" (change)="phoneCheck()" /><br>
+      <span [ngStyle]="{'color':phone.color}">{{ phone.mess}}</span>
+    </p>
+    <div  style="width: 100%; display: inline-flex;justify-content: space-around;align-content: center;" >
+      <button style="display: block;" (click)="register()">Register</button>
+      <button style="display: block;" [routerLink]="['/login']">Login</button>
+    </div>
+  </div>
+
+
+</div>
+<br>
+<app-user-table></app-user-table>

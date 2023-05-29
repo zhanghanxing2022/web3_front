@@ -1,0 +1,21 @@
+<div style="width: 100%;display:flex;justify-content: center; align-items:center;">
+    <div class="register_login_container">
+        <p>
+            <label>Name</label>
+            <input required [(ngModel)]="name.value" (change)="nameCheck()" />
+        </p>
+        <p>
+            <label>Password</label>
+            <input required [(ngModel)]="pass.value" type="password" (change)="passCheck()" />
+
+        </p>
+        <p>
+            <span [ngStyle]="{'color':pass.color}">{{ pass.mess}}</span>
+        </p>
+        <div  style="width: 100%; display: inline-flex;justify-content: space-around;align-content: center;" >
+            <button (click)="login()">login</button>
+            <button [routerLink]="['/register']">Register</button>
+          </div>
+    </div>
+</div>
+

@@ -143,3 +143,14 @@ Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.register_login_container
+{
+    border-radius: 5px;
+    padding: 10px 50px;
+    box-shadow: 0 0 5px gray;
+}
+.register_login_container input{
+    width: 300px;
+}
